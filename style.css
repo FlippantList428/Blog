@@ -1,0 +1,162 @@
+/* wyczyszczenie domyślengo stylizowania textu */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Ciało strony */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Kontener dla aside i main */
+
+body > aside {
+    position: absolute;
+    left: 0;
+    top: 60px;
+    height: calc(100vh - 60px);
+}
+
+body > main {
+    margin-left: 15%;
+    flex: 1;
+}
+
+/* nagłówek */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    color: whitesmoke;
+    padding: 15px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+/*nawigacja w nagłówku */
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav .btn {
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+nav .btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* sekcja wyboru dystrybucji*/
+
+.distributions {
+    display: flex;
+    flex-direction: column;
+    background: peru;
+    color: whitesmoke;
+    padding: 10px 15px;
+    min-height: 250px;
+    width: 15%;
+    line-height: 1.2;
+    font-size: 18px;
+}
+
+.distributions h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.distributions ul {
+    list-style: none;
+}
+
+.distributions li {
+    list-style: none;
+    margin: 0;
+}
+
+.distributions a {
+    text-decoration: none;
+    color: whitesmoke;
+    display: block;
+    padding: 10px 8px;
+}
+
+/* reklamy */
+
+.distributions .reklamy .ad-placeholder {
+    width: auto;
+    height: 250px;
+    background-color: #999;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Wpisy */
+
+main.wpisy {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex: 1;
+    padding: 20px;
+}
+
+.wpis {
+    flex: 1 1 calc(33.333% - 14px);
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.wpis:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.wpis h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 22px;
+    text-align: center;
+}
+
+.wpis p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .distributions {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
