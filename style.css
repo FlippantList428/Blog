@@ -12,6 +12,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
+    background: wheat;
 }
 
 /* Kontener dla aside i main */
@@ -151,6 +152,10 @@ main.wpisy {
     margin: 0;
     color: #666;
     line-height: 1.6;
+}
+
+.wpis a {
+    text-decoration: none;
 }
 
 /* Responsywność */
