@@ -27,32 +27,89 @@
     </header>
     <!-- Skrypt dla menu hamburgerowego (moved to main.js) -->
 
-    <!-- Główna zawartość podstrony - szczegółowy opis dystrybucji -->
-    <!-- main ma nadpisany styl margin-left dla podstron, gdzie nie ma sidebara -->
-    <main>
-        <!-- Klasa wpis-detail odpowiada za wyśrodkowany i ostylowany kontener tekstu -->
-        <article class="wpis-detail">
-            <h1>Ubuntu</h1>
-            <h2>Dlaczego ten system?</h2>
-            <p>Ubuntu to jedna z najpopularniejszych dystrybucji Linuksa na świecie. Jest rozwijana przez firmę
-                Canonical oraz społeczność. Dzięki swojej stabilności, łatwości obsługi i ogromnemu wsparciu, jest
-                idealnym wyborem zarówno dla początkujących, jak i zaawansowanych użytkowników.</p>
-
-            <h3>Kluczowe cechy:</h3>
+    <div class="container">
+        <!-- Panel boczny (taki sam jak na stronie głównej dla spójności) -->
+        <aside class="distributions">
+            <h2>Dystrybucje</h2>
             <ul>
-                <li><strong>Łatwa instalacja:</strong> Intuicyjny instalator krok po kroku.</li>
-                <li><strong>Wsparcie sprzętowe:</strong> Doskonała obsługa większości komputerów i urządzeń
-                    peryferyjnych.</li>
-                <li><strong>Oprogramowanie:</strong> Ogromna baza dostępnych aplikacji w Centrum Oprogramowania.</li>
-                <li><strong>Społeczność:</strong> Miliony użytkowników gotowych pomóc na forach.</li>
+                <li><a href="ubuntu.html" class="active">Ubuntu</a></li>
+                <li><a href="manjaro.html">Manjaro</a></li>
+                <li><a href="fedora.html">Fedora</a></li>
+                <li><a href="mint.html">Mint</a></li>
+                <li><a href="debian.html">Debian</a></li>
+                <li><a href="steamos.html">SteamOS</a></li>
+                <li><a href="popos.html">PopOS!</a></li>
+                <li><a href="gentoo.html">Gentoo</a></li>
+                <li><a href="arch.html">Arch</a></li>
+                <li><a href="kali.html">Kali Linux</a></li>
+                <li><a href="elementary.html">Elementary OS</a></li>
+                <li><a href="opensuse.html">openSUSE</a></li>
             </ul>
-        </article>
-    </main>
+
+            <div class="sidebar-section">
+                <h3>Typ użytkownika</h3>
+                <ul>
+                    <li><a href="#">Początkujący</a></li>
+                    <li><a href="#">Zaawansowany</a></li>
+                    <li><a href="#">Ekspert</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Poziom trudności</h3>
+                <ul>
+                    <li><a href="#">Łatwy</a></li>
+                    <li><a href="#">Średni</a></li>
+                    <li><a href="#">Trudny</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Zastosowanie</h3>
+                <ul>
+                    <li><a href="#">Desktop</a></li>
+                    <li><a href="#">Serwer</a></li>
+                    <li><a href="#">Mobile / IoT</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Główna zawartość podstrony -->
+        <main style="padding: 2rem;">
+            <!-- Klasa wpis-detail odpowiada za wyśrodkowany i ostylowany kontener tekstu -->
+            <article class="wpis-detail">
+                <nav class="breadcrumbs" aria-label="Breadcrumb" style="margin-top: -1rem; margin-bottom: 2rem;">
+                    <a href="index.html">Start</a>
+                    <span class="separator">/</span>
+                    <span class="current">Ubuntu</span>
+                </nav>
+                <h1>Ubuntu</h1>
+                <h2>Dlaczego ten system?</h2>
+                <p>Ubuntu to jedna z najpopularniejszych dystrybucji Linuksa na świecie. Jest rozwijana przez firmę
+                    Canonical oraz społeczność. Dzięki swojej stabilności, łatwości obsługi i ogromnemu wsparciu, jest
+                    idealnym wyborem zarówno dla początkujących, jak i zaawansowanych użytkowników.</p>
+
+                <h3>Kluczowe cechy:</h3>
+                <ul>
+                    <li><strong>Łatwa instalacja:</strong> Intuicyjny instalator krok po kroku.</li>
+                    <li><strong>Wsparcie sprzętowe:</strong> Doskonała obsługa większości komputerów i urządzeń
+                        peryferyjnych.</li>
+                    <li><strong>Oprogramowanie:</strong> Ogromna baza dostępnych aplikacji w Centrum Oprogramowania.
+                    </li>
+                    <li><strong>Społeczność:</strong> Miliony użytkowników gotowych pomóc na forach.</li>
+                </ul>
+            </article>
+        </main>
+    </div>
 
     <!-- Stopka strony -->
     <footer>
         <p>&copy; 2026 Blog o Linuxie</p>
     </footer>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Przełącz motyw">
+        <span class="light-mode-icon">🌙</span>
+        <span class="dark-mode-icon">☀️</span>
+    </button>
 </body>
 
 </html>

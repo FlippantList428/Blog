@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Baza Wiedzy - Blog o Linuxie</title>
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <!-- Nagłówek strony -->
+    <header>
+        <h1><a href="index.html">Linux Blog</a></h1>
+        <button class="hamburger" id="hamburger" aria-label="Otwórz menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="index.html" class="btn">Start</a>
+            <a href="technical.html" class="btn active">Wiedza</a>
+            <a href="news.html" class="btn">Nowości</a>
+            <a href="about-me.html" class="btn">O nas</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Panel boczny z filtrami -->
+        <aside class="distributions">
+            <h2>Kategorie</h2>
+            <div class="sidebar-section">
+                <h3>Rodzaj treści</h3>
+                <ul>
+                    <li><button class="filter-btn active" data-filter="all">Pokaż wszystkie</button></li>
+                    <li><button class="filter-btn" data-filter="tutorial">Tutoriale</button></li>
+                    <li><button class="filter-btn" data-filter="cli">CLI & Skrypty</button></li>
+                    <li><button class="filter-btn" data-filter="comparison">Porównania</button></li>
+                    <li><button class="filter-btn" data-filter="exam">Egzaminy IT</button></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Główna zawartość -->
+        <main class="wpisy">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <a href="index.html">Start</a>
+                <span class="separator">/</span>
+                <span class="current">Baza Wiedzy</span>
+            </nav>
+
+            <!-- Tutorial -->
+            <article class="wpis" data-tags="tutorial desktop">
+                <a href="#">
+                    <h3>GNOME vs KDE - Co wybrać?</h3>
+                </a>
+                <p>Szczegółowe porównanie dwóch najpopularniejszych środowisk graficznych w świecie Linuksa. Instalacja,
+                    konfiguracja i wydajność.</p>
+                <div class="tag-container">
+                    <span class="tag">Tutorial</span>
+                    <span class="tag">Desktop</span>
+                </div>
+            </article>
+
+            <!-- CLI Tips -->
+            <article class="wpis" data-tags="cli expert">
+                <a href="#">
+                    <h3>Mistrz Terminala: 10 trików Bash</h3>
+                </a>
+                <p>Poznaj zaawansowane skróty i polecenia, które drastycznie przyspieszą Twoją pracę w terminalu Linux.
+                </p>
+                <div class="tag-container">
+                    <span class="tag">CLI</span>
+                    <span class="tag">Expert</span>
+                </div>
+            </article>
+
+            <!-- IT Exams -->
+            <article class="wpis" data-tags="exam training">
+                <a href="#">
+                    <h3>Egzamin INF.02 - Przygotowanie</h3>
+                </a>
+                <p>Kompletny poradnik i zestawy zadań przygotowujące do egzaminu zawodowego INF.02 (montaż i
+                    eksploatacja systemów).</p>
+                <div class="tag-container">
+                    <span class="tag">Egzamin IT</span>
+                    <span class="tag">Edukacja</span>
+                </div>
+            </article>
+
+            <!-- IT Exams 2 -->
+            <article class="wpis" data-tags="exam networking">
+                <a href="#">
+                    <h3>Egzamin INF.03 - Sieci i Bazy</h3>
+                </a>
+                <p>Skoncentrowane materiały dotyczące administracji sieciami i pracy z bazami danych w kontekście
+                    egzaminu INF.03.</p>
+                <div class="tag-container">
+                    <span class="tag">Egzamin IT</span>
+                    <span class="tag">Sieci</span>
+                </div>
+            </article>
+
+            <!-- Scripts -->
+            <article class="wpis" data-tags="cli tutorial">
+                <a href="#">
+                    <h3>Automatyzacja Backupów w Bash</h3>
+                </a>
+                <p>Jak napisać prosty, ale skuteczny skrypt do tworzenia kopii zapasowych najważniejszych danych na
+                    zewnętrzny serwer.</p>
+                <div class="tag-container">
+                    <span class="tag">Skrypty</span>
+                    <span class="tag">Backup</span>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <!-- Stopka -->
+    <footer>
+        <p>&copy; 2026 Blog o Linuxie</p>
+    </footer>
+
+    <!-- Toggle motywu -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Przełącz motyw">
+        <span class="light-mode-icon">🌙</span>
+        <span class="dark-mode-icon">☀️</span>
+    </button>
+
+</body>
+
+</html>

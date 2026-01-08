@@ -46,112 +46,180 @@
                 <li><a href="#elementary">Elementary OS</a></li>
                 <li><a href="#opensuse">openSUSE</a></li>
             </ul>
+
+            <div class="sidebar-section">
+                <h3>Filtruj po cechach</h3>
+                <ul>
+                    <li><button class="filter-btn active" data-filter="all">Pokaż wszystkie</button></li>
+                    <li><button class="filter-btn" data-filter="beginner-friendly">Beginner Friendly</button></li>
+                    <li><button class="filter-btn" data-filter="rolling-release">Rolling Release</button></li>
+                    <li><button class="filter-btn" data-filter="server-focused">Server Focused</button></li>
+                    <li><button class="filter-btn" data-filter="desktop">Desktop</button></li>
+                    <li><button class="filter-btn" data-filter="gaming">Gaming</button></li>
+                </ul>
+            </div>
         </aside>
 
         <!-- Główna zawartość strony z kafelkami wpisów o dystrybucjach -->
         <main class="wpisy">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <span class="current">Start</span>
+            </nav>
             <!-- Każdy element article reprezentuje skrótowy opis danej dystrybucji -->
-            <article class="wpis" id="ubuntu">
+            <article class="wpis" id="ubuntu" data-tags="beginner-friendly desktop lts">
                 <a href="ubuntu.html">
                     <h3>Ubuntu</h3>
                 </a>
                 <p>Ubuntu to popularna, przyjazna dla początkujących dystrybucja oparta na Debianie, ceniona za prostotę
                     instalacji i wsparcie sprzętowe.</p>
+                <div class="tag-container">
+                    <span class="tag beginner">Beginner Friendly</span>
+                    <span class="tag">Desktop</span>
+                    <span class="tag stable">LTS</span>
+                </div>
             </article>
 
-            <article class="wpis" id="manjaro">
+            <article class="wpis" id="manjaro" data-tags="rolling-release beginner-friendly desktop">
                 <a href="manjaro.html">
                     <h3>Manjaro</h3>
                 </a>
                 <p>Manjaro łączy moc Arch z prostotą użytkowania — oferuje łatwiejszą instalację i gotowe środowiska
                     graficzne.</p>
+                <div class="tag-container">
+                    <span class="tag rolling">Rolling Release</span>
+                    <span class="tag beginner">Beginner Friendly</span>
+                    <span class="tag">Desktop</span>
+                </div>
             </article>
 
-            <article class="wpis" id="fedora">
+            <article class="wpis" id="fedora" data-tags="desktop cutting-edge">
                 <a href="fedora.html">
                     <h3>Fedora</h3>
                 </a>
                 <p>Fedora to nowoczesna dystrybucja, często używana do testowania najnowszych technologii Linuksa —
                     szybkie
                     wydania i DNF.</p>
+                <div class="tag-container">
+                    <span class="tag">Desktop</span>
+                    <span class="tag">Cutting Edge</span>
+                </div>
             </article>
 
-            <article class="wpis" id="mint">
+            <article class="wpis" id="mint" data-tags="beginner-friendly desktop stable">
                 <a href="mint.html">
                     <h3>Mint</h3>
                 </a>
                 <p>Linux Mint to dystrybucja oparta na Ubuntu, skupiona na prostocie, wygodzie i gotowych rozwiązaniach
                     dla
                     użytkownika.</p>
+                <div class="tag-container">
+                    <span class="tag beginner">Beginner Friendly</span>
+                    <span class="tag">Desktop</span>
+                    <span class="tag stable">Stable</span>
+                </div>
             </article>
 
-            <article class="wpis" id="debian">
+            <article class="wpis" id="debian" data-tags="server-focused stable lts">
                 <a href="debian.html">
                     <h3>Debian</h3>
                 </a>
                 <p>Debian to stabilna i sprawdzona dystrybucja — fundament dla wielu innych systemów, ceniona za
                     niezawodność.</p>
+                <div class="tag-container">
+                    <span class="tag server">Server Focused</span>
+                    <span class="tag stable">Stable</span>
+                </div>
             </article>
 
-            <article class="wpis" id="steamos">
+            <article class="wpis" id="steamos" data-tags="gaming desktop stable">
                 <a href="steamos.html">
                     <h3>SteamOS</h3>
                 </a>
                 <p>SteamOS to system zoptymalizowany pod gry i integrację ze Steamem — oparty na Debianie z naciskiem na
                     wydajność gier.</p>
+                <div class="tag-container">
+                    <span class="tag">Gaming</span>
+                    <span class="tag">Desktop</span>
+                </div>
             </article>
 
-            <article class="wpis" id="popos">
+            <article class="wpis" id="popos" data-tags="desktop beginner-friendly gaming">
                 <a href="popos.html">
                     <h3>PopOS!</h3>
                 </a>
                 <p>Pop!_OS, stworzony przez System76, skierowany jest do twórców i graczy — z optymalizacjami GPU i
                     wygodnym
                     środowiskiem.</p>
+                <div class="tag-container">
+                    <span class="tag">Desktop</span>
+                    <span class="tag beginner">Beginner Friendly</span>
+                    <span class="tag">Gaming</span>
+                </div>
             </article>
 
-            <article class="wpis" id="gentoo">
+            <article class="wpis" id="gentoo" data-tags="expert rolling-release performance">
                 <a href="gentoo.html">
                     <h3>Gentoo</h3>
                 </a>
                 <p>Gentoo oferuje kompilację pakietów ze źródeł i maksymalną kontrolę — to wybór dla zaawansowanych
                     użytkowników poszukujących wydajności.</p>
+                <div class="tag-container">
+                    <span class="tag">Expert</span>
+                    <span class="tag rolling">Rolling Release</span>
+                </div>
             </article>
 
-            <article class="wpis" id="arch">
+            <article class="wpis" id="arch" data-tags="expert rolling-release flexibility">
                 <a href="arch.html">
                     <h3>Arch</h3>
                 </a>
                 <p>Arch Linux to lekka i elastyczna dystrybucja dla zaawansowanych użytkowników — znana z filozofii KISS
                     i
                     modelu rolling release.</p>
+                <div class="tag-container">
+                    <span class="tag">Expert</span>
+                    <span class="tag rolling">Rolling Release</span>
+                </div>
             </article>
 
-            <article class="wpis" id="kali">
+            <article class="wpis" id="kali" data-tags="expert security server-focused">
                 <a href="kali.html">
                     <h3>Kali Linux</h3>
                 </a>
                 <p>Kali Linux to zaawansowana dystrybucja do testów penetracyjnych i audytów bezpieczeństwa, wyposażona
                     w
                     setki specjalistycznych narzędzi.</p>
+                <div class="tag-container">
+                    <span class="tag">Security</span>
+                    <span class="tag server">Server Focused</span>
+                </div>
             </article>
 
-            <article class="wpis" id="elementary">
+            <article class="wpis" id="elementary" data-tags="desktop beginner-friendly design">
                 <a href="elementary.html">
                     <h3>Elementary OS</h3>
                 </a>
                 <p>Elementary OS wyróżnia się pięknym, przemyślanym interfejsem inspirowanym systemem macOS, stawiając
                     na
                     estetykę i prywatność.</p>
+                <div class="tag-container">
+                    <span class="tag">Desktop</span>
+                    <span class="tag beginner">Beginner Friendly</span>
+                </div>
             </article>
 
-            <article class="wpis" id="opensuse">
+            <article class="wpis" id="opensuse" data-tags="desktop server-focused stable">
                 <a href="opensuse.html">
                     <h3>openSUSE</h3>
                 </a>
                 <p>openSUSE to stabilna i wszechstronna dystrybucja z potężnym narzędziem konfiguracyjnym YaST, dostępna
                     w
                     wersjach Leap i Tumbleweed.</p>
+                <div class="tag-container">
+                    <span class="tag">Desktop</span>
+                    <span class="tag server">Server Focused</span>
+                    <span class="tag stable">Stable</span>
+                </div>
             </article>
         </main>
 
@@ -161,6 +229,10 @@
     <footer>
         <p>&copy; 2026 Blog o Linuxie</p>
     </footer>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Przełącz motyw">
+        <span class="light-mode-icon">🌙</span>
+        <span class="dark-mode-icon">☀️</span>
+    </button>
 </body>
 
 </html>
