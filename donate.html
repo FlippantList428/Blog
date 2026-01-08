@@ -6,44 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Wesprzyj nas - Blog o Linuxie</title>
+    <script src="main.js" defer></script>
 </head>
 
 <body>
-    <!-- Nagłówek strony -->
-        <header>
-        <h1><a href="index.html">Linux Blog</a></h1>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav id="nav-menu">
-            <a href="index.html" class="btn">Start</a>
-            <a href="news.html" class="btn">Nowości</a>
-            <a href="about-me.html" class="btn">O nas</a>
-            <a href="login.html" class="btn">Logowanie</a>
-        </nav>
-    </header>
-
-    <!-- Skrypt dla menu hamburgerowego -->
-        <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-
-            document.querySelectorAll('#nav-menu .btn').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
-        }
-    </script>
+    <!-- Shared JS logic in main.js -->
 
     <!-- Główna zawartość -->
     <main>
@@ -66,7 +33,7 @@
 
     <!-- Stopka strony -->
     <footer>
-        <p>&copy; 2024 Blog o Linuxie</p>
+        <p>&copy; 2026 Blog o Linuxie</p>
     </footer>
 </body>
 

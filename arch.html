@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Arch Linux - Szczegóły Dystrybucji</title>
+    <script src="main.js" defer></script>
 </head>
 
 <body>
@@ -24,24 +25,7 @@
             <a href="login.html" class="btn">Logowanie</a>
         </nav>
     </header>
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-
-            document.querySelectorAll('#nav-menu .btn').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
-        }
-    </script>
+    <!-- Shared JS logic in main.js -->
 
     <!-- Główna zawartość podstrony -->
     <main>
@@ -63,7 +47,7 @@
 
     <!-- Stopka strony -->
     <footer>
-        <p>&copy; 2024 Blog o Linuxie</p>
+        <p>&copy; 2026 Blog o Linuxie</p>
     </footer>
 </body>
 

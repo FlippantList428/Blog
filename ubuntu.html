@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Ubuntu - Szczegóły Dystrybucji</title>
+    <script src="main.js" defer></script>
 </head>
 
 <body>
     <!-- Nagłówek podstrony z tytułem i przyciskiem powrotu -->
-        <header>
+    <header>
         <h1><a href="index.html">Linux Blog</a></h1>
         <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span>
@@ -24,31 +25,15 @@
             <a href="login.html" class="btn">Logowanie</a>
         </nav>
     </header>
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-
-            document.querySelectorAll('#nav-menu .btn').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
-        }
-    </script>
+    <!-- Skrypt dla menu hamburgerowego (moved to main.js) -->
 
     <!-- Główna zawartość podstrony - szczegółowy opis dystrybucji -->
     <!-- main ma nadpisany styl margin-left dla podstron, gdzie nie ma sidebara -->
     <main>
         <!-- Klasa wpis-detail odpowiada za wyśrodkowany i ostylowany kontener tekstu -->
         <article class="wpis-detail">
-            <h1>Ubuntu</h1><h2>Dlaczego ten system?</h2>
+            <h1>Ubuntu</h1>
+            <h2>Dlaczego ten system?</h2>
             <p>Ubuntu to jedna z najpopularniejszych dystrybucji Linuksa na świecie. Jest rozwijana przez firmę
                 Canonical oraz społeczność. Dzięki swojej stabilności, łatwości obsługi i ogromnemu wsparciu, jest
                 idealnym wyborem zarówno dla początkujących, jak i zaawansowanych użytkowników.</p>
@@ -66,7 +51,7 @@
 
     <!-- Stopka strony -->
     <footer>
-        <p>&copy; 2024 Blog o Linuxie</p>
+        <p>&copy; 2026 Blog o Linuxie</p>
     </footer>
 </body>
 

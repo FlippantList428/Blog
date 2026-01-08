@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Logowanie - Blog o Linuxie</title>
+    <script src="main.js" defer></script>
 </head>
 
 <body>
     <!-- Nagłówek sekcji logowania -->
-        <header>
+    <header>
         <h1><a href="index.html">Linux Blog</a></h1>
         <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span>
@@ -25,25 +26,7 @@
         </nav>
     </header>
 
-    <!-- Skrypt obsługujący menu mobilne na stronie logowania -->
-        <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-
-            document.querySelectorAll('#nav-menu .btn').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
-        }
-    </script>
+    <!-- Skrypt obsługujący menu mobilne na stronie logowania (moved to main.js) -->
 
     <!-- Główny kontener strony logowania -->
     <main class="auth-container">
@@ -75,29 +58,11 @@
         </section>
     </main>
 
-    <!-- Skrypt obsługujący walidację formularza logowania po stronie użytkownika -->
-        <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-
-            document.querySelectorAll('#nav-menu .btn').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
-        }
-    </script>
+    <!-- Skrypt obsługujący walidację formularza (moved to main.js) -->
 
     <!-- Stopka strony -->
     <footer>
-        <p>&copy; 2024 Blog o Linuxie</p>
+        <p>&copy; 2026 Blog o Linuxie</p>
     </footer>
 </body>
 

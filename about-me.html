@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>O nas - Blog o Linuxie</title>
+    <script src="main.js" defer></script>
 </head>
 
 <body>
     <!-- Nagłówek strony "O nas" -->
-        <header>
+    <header>
         <h1><a href="index.html">Linux Blog</a></h1>
         <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span>
@@ -25,25 +26,7 @@
         </nav>
     </header>
 
-    <!-- Skrypt dla menu hamburgerowego -->
-        <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-
-            document.querySelectorAll('#nav-menu .btn').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
-        }
-    </script>
+    <!-- Skrypt dla menu hamburgerowego (moved to main.js) -->
 
     <!-- Główna zawartość strony -->
     <main>
@@ -51,12 +34,12 @@
 
             <!-- Rozbudowana sekcja O nas -->
             <article class="wpis-detail">
-                <h1><a href="index.html" >Linux Blog</a></h1>
+                <h1>O nas</h1>
                 <p>Blog o Linuxie powstał z pasji do otwartego oprogramowania. Naszym celem jest edukowanie użytkowników
                     na każdym poziomie zaawansowania – od osób, które pierwszy raz słyszą o pingwinie, po doświadczonych
                     administratorów systemów.</p>
 
-                <h1>to robimy</h1><h2>Dlaczego ten system?</h2>
+                <h2>Dlaczego ten system?</h2>
                 <p>Wierzymy, że wolność wyboru w świecie technologii jest kluczowa. Linux oferuje nieskończone
                     możliwości personalizacji, bezpieczeństwa i wydajności. Chcemy pokazać, że ten system nie jest
                     "straszny" i każdy może znaleźć dystrybucję idealnie dopasowaną do swoich potrzeb.</p>
@@ -72,7 +55,7 @@
 
     <!-- Stopka strony -->
     <footer>
-        <p>&copy; 2024 Blog o Linuxie</p>
+        <p>&copy; 2026 Blog o Linuxie</p>
     </footer>
 </body>
 

@@ -193,6 +193,7 @@ main.wpisy {
     transition: var(--transition);
     display: flex;
     flex-direction: column;
+    scroll-margin-top: 90px;
 }
 
 .wpis:hover {
@@ -226,6 +227,7 @@ main.wpisy {
     padding: 3rem;
     border-radius: 15px;
     box-shadow: var(--shadow-md);
+    scroll-margin-top: 90px;
 }
 
 .wpis-detail h1,
