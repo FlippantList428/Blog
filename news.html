@@ -30,13 +30,21 @@
 
     <main>
         <!-- Sekcja z najnowszymi wpisami -->
-        <section class="news-list">
-            <h1>Ostatnie Nowości</h1>
+        <section class="news-list container-small">
+            <div class="news-header">
+                <h1>Ostatnie Nowości</h1>
+                <p>Bądź na bieżąco z najnowszymi wydarzeniami ze świata otwartego oprogramowania.</p>
+            </div>
 
             <!-- Artykuł 1 -->
-            <article class="wpis-detail">
+            <article class="wpis-detail animate-fade">
                 <span class="badge-new">New</span>
                 <h2>Wydanie jądra Linux 6.12</h2>
+                <div class="article-meta">
+                    <span class="meta-author">Redakcja</span>
+                    <span class="meta-date">2026-01-08</span>
+                    <span class="meta-category">Kernel</span>
+                </div>
                 <p>Nowa wersja jądra przynosi szereg usprawnień w zakresie wydajności oraz wsparcia dla najnowszych
                     procesorów. Skupiono się głównie na optymalizacji harmonogramu zadań oraz poprawkach bezpieczeństwa.
                 </p>
@@ -59,6 +67,7 @@
 
                     <!-- Formularz dodawania komentarza -->
                     <div class="comment-form">
+                        <h4>Zostaw swoją opinię</h4>
                         <div class="form-group">
                             <textarea id="comment-input-1" placeholder="Dodaj swój komentarz..."></textarea>
                         </div>
@@ -68,9 +77,14 @@
             </article>
 
             <!-- Artykuł 2 -->
-            <article class="wpis-detail">
+            <article class="wpis-detail animate-fade" style="animation-delay: 0.2s">
                 <span class="badge-new">New</span>
                 <h2>Zapowiedź nowej wersji GNOME 48</h2>
+                <div class="article-meta">
+                    <span class="meta-author">Krzysztof</span>
+                    <span class="meta-date">2026-01-07</span>
+                    <span class="meta-category">Środowiska Graficzne</span>
+                </div>
                 <p>Twórcy środowiska GNOME podzielili się pierwszymi zrzutami ekranu z nadchodzącej wersji 48. Możemy
                     spodziewać się jeszcze bardziej odświeżonego interfejsu oraz nowych funkcji w menedżerze plików
                     Nautilus.</p>

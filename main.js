@@ -58,7 +58,7 @@ function addComment(articleId) {
     const dateStr = now.toISOString().split('T')[0];
 
     const li = document.createElement('li');
-    li.className = 'comment-item';
+    li.className = 'comment-item animate-fade';
     li.innerHTML = `
         <div class="comment-header">
             <span class="comment-author">Gość</span>
