@@ -1,20 +1,70 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Blog</title>
+    <title>Arch Linux - Szczegóły Dystrybucji</title>
 </head>
+
 <body>
-    <header>
-        <h1></h1>
+    <!-- Nagłówek podstrony z tytułem i przyciskiem powrotu -->
+        <header>
+        <h1><a href="index.html">Linux Blog</a></h1>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="index.html" class="btn">Start</a>
+            <a href="news.html" class="btn">Nowości</a>
+            <a href="about-me.html" class="btn">O nas</a>
+            <a href="login.html" class="btn">Logowanie</a>
+        </nav>
     </header>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('#nav-menu .btn').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+    <!-- Główna zawartość podstrony -->
     <main>
+        <article class="wpis-detail">
+            <h2>KISS - Keep It Simple, Stupid</h2>
+            <p>Arch Linux to lekka i elastyczna dystrybucja, która daje użytkownikowi wolną rękę. Instalujesz tylko to,
+                czego potrzebujesz, budując system od podstaw. Jest to doskonała szkoła Linuxa.</p>
 
+            <h3>Filozofia Archa:</h3>
+            <ul>
+                <li><strong>Minimalizm:</strong> System podstawowy zawiera absolutne minimum. Resztę dobierasz sam.</li>
+                <li><strong>Rolling Release:</strong> Brak wersji wydawniczych - system jest aktualizowany na bieżąco.
+                </li>
+                <li><strong>Wiki:</strong> Arch Wiki to prawdopodobnie najlepsza dokumentacja w świecie Linuxa.</li>
+                <li><strong>Pacman:</strong> Szybki i prosty w obsłudze menedżer pakietów.</li>
+            </ul>
+        </article>
     </main>
-    <footer>
 
+    <!-- Stopka strony -->
+    <footer>
+        <p>&copy; 2024 Blog o Linuxie</p>
     </footer>
 </body>
+
 </html>

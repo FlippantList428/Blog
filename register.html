@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Logowanie - Blog o Linuxie</title>
+    <title>Rejestracja - Blog o Linuxie</title>
 </head>
 
 <body>
-    <!-- Nagłówek sekcji logowania -->
+    <!-- Nagłówek sekcji rejestracji -->
         <header>
         <h1><a href="index.html">Linux Blog</a></h1>
         <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -25,7 +25,7 @@
         </nav>
     </header>
 
-    <!-- Skrypt obsługujący menu mobilne na stronie logowania -->
+    <!-- Skrypt obsługujący menu mobilne -->
         <script>
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
@@ -45,37 +45,50 @@
         }
     </script>
 
-    <!-- Główny kontener strony logowania -->
+    <!-- Główny kontener strony rejestracji -->
     <main class="auth-container">
-        <!-- Pudełko z formularzem logowania -->
+        <!-- Pudełko z formularzem rejestracji -->
         <section class="auth-box">
-            <h1>Zaloguj się</h1>
-            <form action="#" method="POST" id="loginForm">
-                <!-- Pole nazwy użytkownika z walidacją HTML5 -->
+            <h1>Rejestracja</h1>
+            <form action="#" method="POST" id="registerForm">
+                <!-- Pole nazwy użytkownika z wzorcem (pattern) i walidacją długości -->
                 <div class="form-group">
                     <label for="username">Nazwa użytkownika</label>
                     <input type="text" id="username" name="username" required minlength="3" maxlength="20"
-                        placeholder="Wpisz login">
-                    <small class="form-hint">Minimum 3 znaki</small>
+                        pattern="[a-zA-Z0-9_]+" placeholder="Wpisz login">
+                    <small class="form-hint">3-20 znaków (litery, cyfry, podkreślnik)</small>
                 </div>
-                <!-- Pole hasła z walidacją HTML5 -->
+                <!-- Pole email -->
+                <div class="form-group">
+                    <label for="email">Adres email</label>
+                    <input type="email" id="email" name="email" required placeholder="Wpisz email">
+                    <small class="form-hint">Poprawny format email</small>
+                </div>
+                <!-- Pole hasła z wymogami bezpieczeństwa -->
                 <div class="form-group">
                     <label for="password">Hasło</label>
                     <input type="password" id="password" name="password" required minlength="8"
                         placeholder="Wpisz hasło">
-                    <small class="form-hint">Minimum 8 znaków</small>
+                    <small class="form-hint">Min. 8 znaków, wielka litera, cyfra</small>
                 </div>
-                <!-- Przycisk wysyłający formularz -->
-                <button type="submit" class="btn-submit">Zaloguj się</button>
+                <!-- Pole potwierdzenia hasła -->
+                <div class="form-group">
+                    <label for="confirm-password">Potwierdź hasło</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required minlength="8"
+                        placeholder="Powtórz hasło">
+                    <small class="form-hint">Hasła muszą być identyczne</small>
+                </div>
+                <!-- Przycisk rejestracji -->
+                <button type="submit" class="btn-submit">Zarejestruj się</button>
             </form>
-            <!-- Link do strony rejestracji dla nowych użytkowników -->
+            <!-- Link powrotny do logowania -->
             <p class="auth-switch">
-                Nie masz jeszcze konta? <a href="register.html">Zarejestruj się</a>
+                Masz już konto? <a href="login.html">Zaloguj się</a>
             </p>
         </section>
     </main>
 
-    <!-- Skrypt obsługujący walidację formularza logowania po stronie użytkownika -->
+    <!-- Skrypt obsługujący zaawansowaną walidację formularza rejestracji -->
         <script>
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
@@ -95,7 +108,7 @@
         }
     </script>
 
-    <!-- Stopka strony -->
+    <!-- Stopka -->
     <footer>
         <p>&copy; 2024 Blog o Linuxie</p>
     </footer>

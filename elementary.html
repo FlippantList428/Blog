@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>O nas - Blog o Linuxie</title>
+    <title>Elementary OS - Szczegóły Dystrybucji</title>
 </head>
 
 <body>
-    <!-- Nagłówek strony "O nas" -->
+    <!-- Nagłówek podstrony -->
         <header>
         <h1><a href="index.html">Linux Blog</a></h1>
         <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -24,9 +24,7 @@
             <a href="login.html" class="btn">Logowanie</a>
         </nav>
     </header>
-
-    <!-- Skrypt dla menu hamburgerowego -->
-        <script>
+    <script>
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
 
@@ -45,29 +43,21 @@
         }
     </script>
 
-    <!-- Główna zawartość strony -->
+    <!-- Główna zawartość podstrony -->
     <main>
-        <div class="content-wrapper">
+        <article class="wpis-detail">
+            <h2>O Elementary OS</h2>
+            <p>Elementary OS to dystrybucja Linuksa oparta na Ubuntu, która skupia się na estetyce i prostocie
+                użytkowania. Jest to świetny wybór dla osób przesiadających się z macOS lub Windowsa.</p>
 
-            <!-- Rozbudowana sekcja O nas -->
-            <article class="wpis-detail">
-                <h1><a href="index.html" >Linux Blog</a></h1>
-                <p>Blog o Linuxie powstał z pasji do otwartego oprogramowania. Naszym celem jest edukowanie użytkowników
-                    na każdym poziomie zaawansowania – od osób, które pierwszy raz słyszą o pingwinie, po doświadczonych
-                    administratorów systemów.</p>
-
-                <h1>to robimy</h1><h2>Dlaczego ten system?</h2>
-                <p>Wierzymy, że wolność wyboru w świecie technologii jest kluczowa. Linux oferuje nieskończone
-                    możliwości personalizacji, bezpieczeństwa i wydajności. Chcemy pokazać, że ten system nie jest
-                    "straszny" i każdy może znaleźć dystrybucję idealnie dopasowaną do swoich potrzeb.</p>
-
-                <h2>Nasz Zespół</h2>
-                <p>Jesteśmy grupą entuzjastów rozproszonych po całym kraju. Łączy nas zamiłowanie do terminala,
-                    skryptowania i filozofii Open Source. Każdy z nas wnosi inne spojrzenie – od fanów minimalizmu Archa
-                    po zwolenników stabilności Debiana.</p>
-            </article>
-
-        </div>
+            <h3>Główne cechy:</h3>
+            <ul>
+                <li>Piękny interfejs Pantheon.</li>
+                <li>Własny sklep z aplikacjami (AppCenter).</li>
+                <li>Skupienie na prywatności i braku zbędnych dodatków.</li>
+                <li>Model "płać ile chcesz" za system i aplikacje.</li>
+            </ul>
+        </article>
     </main>
 
     <!-- Stopka strony -->

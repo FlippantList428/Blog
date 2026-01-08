@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Nowości - Blog o Linuxie</title>
+</head>
+
+<body>
+    <!-- Nagłówek strony z nawigacją -->
+        <header>
+        <h1><a href="index.html">Linux Blog</a></h1>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="index.html" class="btn">Start</a>
+            <a href="news.html" class="btn">Nowości</a>
+            <a href="about-me.html" class="btn">O nas</a>
+            <a href="login.html" class="btn">Logowanie</a>
+        </nav>
+    </header>
+
+    <!-- Skrypt dla menu hamburgerowego -->
+        <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('#nav-menu .btn').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+    <main>
+        <!-- Sekcja z najnowszymi wpisami -->
+        <section class="news-list">
+            <h1>Ostatnie Nowości</h1>
+
+            <!-- Artykuł 1 -->
+            <article class="wpis-detail">
+                <span class="badge-new">New</span>
+                <h2>Wydanie jądra Linux 6.12</h2>
+                <p>Nowa wersja jądra przynosi szereg usprawnień w zakresie wydajności oraz wsparcia dla najnowszych
+                    procesorów. Skupiono się głównie na optymalizacji harmonogramu zadań oraz poprawkach bezpieczeństwa.
+                </p>
+                <p>Najważniejsze zmiany to: ulepszony sterownik NTFS3, wsparcie dla nowych układów graficznych Intel i
+                    AMD oraz poprawki w systemie plików Btrfs.</p>
+
+                <!-- Sekcja komentarzy dla Artykułu 1 -->
+                <div class="comments-container">
+                    <h3>Komentarze</h3>
+                    <ul class="comment-list" id="comments-1">
+                        <li class="comment-item">
+                            <div class="comment-header">
+                                <span class="comment-author">Tomasz</span>
+                                <span class="comment-date">2026-01-08</span>
+                            </div>
+                            <div class="comment-body">Świetna wiadomość! Czekam na aktualizację w mojej dystrybucji.
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- Formularz dodawania komentarza -->
+                    <div class="comment-form">
+                        <div class="form-group">
+                            <textarea id="comment-input-1" placeholder="Dodaj swój komentarz..."></textarea>
+                        </div>
+                        <button class="btn-submit" onclick="addComment(1)">Opublikuj komentarz</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Artykuł 2 -->
+            <article class="wpis-detail">
+                <span class="badge-new">New</span>
+                <h2>Zapowiedź nowej wersji GNOME 48</h2>
+                <p>Twórcy środowiska GNOME podzielili się pierwszymi zrzutami ekranu z nadchodzącej wersji 48. Możemy
+                    spodziewać się jeszcze bardziej odświeżonego interfejsu oraz nowych funkcji w menedżerze plików
+                    Nautilus.</p>
+
+                <div class="comments-container">
+                    <h3>Komentarze</h3>
+                    <ul class="comment-list" id="comments-2">
+                        <li class="comment-item">
+                            <div class="comment-header">
+                                <span class="comment-author">Ania_Linux</span>
+                                <span class="comment-date">2026-01-07</span>
+                            </div>
+                            <div class="comment-body">Wygląda obiecująco. Mam nadzieję, że poprawią wydajność animacji
+                                na słabszym sprzęcie.</div>
+                        </li>
+                    </ul>
+
+                    <div class="comment-form">
+                        <div class="form-group">
+                            <textarea id="comment-input-2" placeholder="Dodaj swój komentarz..."></textarea>
+                        </div>
+                        <button class="btn-submit" onclick="addComment(2)">Opublikuj komentarz</button>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <!-- Skrypt obsługujący dodawanie komentarzy (mock logic) -->
+        <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('#nav-menu .btn').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+    <!-- Stopka strony -->
+    <footer>
+        <p>&copy; 2024 Blog o Linuxie</p>
+    </footer>
+</body>
+
+</html>

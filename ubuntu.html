@@ -1,20 +1,73 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Blog</title>
+    <title>Ubuntu - Szczegóły Dystrybucji</title>
 </head>
+
 <body>
-    <header>
-        <h1></h1>
+    <!-- Nagłówek podstrony z tytułem i przyciskiem powrotu -->
+        <header>
+        <h1><a href="index.html">Linux Blog</a></h1>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="index.html" class="btn">Start</a>
+            <a href="news.html" class="btn">Nowości</a>
+            <a href="about-me.html" class="btn">O nas</a>
+            <a href="login.html" class="btn">Logowanie</a>
+        </nav>
     </header>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('#nav-menu .btn').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+    <!-- Główna zawartość podstrony - szczegółowy opis dystrybucji -->
+    <!-- main ma nadpisany styl margin-left dla podstron, gdzie nie ma sidebara -->
     <main>
+        <!-- Klasa wpis-detail odpowiada za wyśrodkowany i ostylowany kontener tekstu -->
+        <article class="wpis-detail">
+            <h1>Ubuntu</h1><h2>Dlaczego ten system?</h2>
+            <p>Ubuntu to jedna z najpopularniejszych dystrybucji Linuksa na świecie. Jest rozwijana przez firmę
+                Canonical oraz społeczność. Dzięki swojej stabilności, łatwości obsługi i ogromnemu wsparciu, jest
+                idealnym wyborem zarówno dla początkujących, jak i zaawansowanych użytkowników.</p>
 
+            <h3>Kluczowe cechy:</h3>
+            <ul>
+                <li><strong>Łatwa instalacja:</strong> Intuicyjny instalator krok po kroku.</li>
+                <li><strong>Wsparcie sprzętowe:</strong> Doskonała obsługa większości komputerów i urządzeń
+                    peryferyjnych.</li>
+                <li><strong>Oprogramowanie:</strong> Ogromna baza dostępnych aplikacji w Centrum Oprogramowania.</li>
+                <li><strong>Społeczność:</strong> Miliony użytkowników gotowych pomóc na forach.</li>
+            </ul>
+        </article>
     </main>
-    <footer>
 
+    <!-- Stopka strony -->
+    <footer>
+        <p>&copy; 2024 Blog o Linuxie</p>
     </footer>
 </body>
+
 </html>

@@ -1,20 +1,70 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Blog</title>
+    <title>Pop!_OS - Szczegóły Dystrybucji</title>
 </head>
+
 <body>
-    <header>
-        <h1></h1>
+    <!-- Nagłówek podstrony -->
+        <header>
+        <h1><a href="index.html">Linux Blog</a></h1>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="index.html" class="btn">Start</a>
+            <a href="news.html" class="btn">Nowości</a>
+            <a href="about-me.html" class="btn">O nas</a>
+            <a href="login.html" class="btn">Logowanie</a>
+        </nav>
     </header>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('#nav-menu .btn').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+    <!-- Główna zawartość podstrony -->
     <main>
+        <article class="wpis-detail">
+            <h2>Dla twórców i naukowców</h2>
+            <p>Pop!_OS to dystrybucja stworzona przez firmę System76, producenta sprzętu. Jest zoptymalizowana pod kątem
+                wydajności pracy, programowania i obsługi nowoczesnego sprzętu, w tym kart graficznych NVIDIA.</p>
 
+            <h3>Dlaczego Pop!_OS?</h3>
+            <ul>
+                <li><strong>Pop Shell:</strong> Zaawansowane zarządzanie oknami z funkcją auto-tiling (automatyczne
+                    układanie okien).</li>
+                <li><strong>Wsparcie GPU:</strong> Osobne obrazy ISO ze sterownikami NVIDIA instalowanymi
+                    "out-of-the-box".</li>
+                <li><strong>Sklep Pop:</strong> Wygodne instalowanie aplikacji, w tym Flatpaków.</li>
+            </ul>
+        </article>
     </main>
-    <footer>
 
+    <!-- Stopka strony -->
+    <footer>
+        <p>&copy; 2024 Blog o Linuxie</p>
     </footer>
 </body>
+
 </html>

@@ -1,20 +1,72 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Blog</title>
+    <title>Fedora - Szczegóły Dystrybucji</title>
 </head>
+
 <body>
-    <header>
-        <h1></h1>
+    <!-- Nagłówek podstrony -->
+        <header>
+        <h1><a href="index.html">Linux Blog</a></h1>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="index.html" class="btn">Start</a>
+            <a href="news.html" class="btn">Nowości</a>
+            <a href="about-me.html" class="btn">O nas</a>
+            <a href="login.html" class="btn">Logowanie</a>
+        </nav>
     </header>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('#nav-menu .btn').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+    <!-- Główna zawartość podstrony -->
     <main>
+        <article class="wpis-detail">
+            <h2>Nowoczesność i innowacja</h2>
+            <p>Fedora to poligon doświadczalny dla nowych technologii, które później trafiają do Red Hat Enterprise
+                Linux. Jest to system dla programistów i entuzjastów, którzy chcą korzystać z najnowszego oprogramowania
+                w stabilnym środowisku.</p>
 
+            <h3>Cechy wyróżniające:</h3>
+            <ul>
+                <li><strong>Najnowsze pakiety:</strong> Szybki dostęp do najnowszych wersji jąder Linuxa i środowisk
+                    graficznych (np. GNOME).</li>
+                <li><strong>Bezpieczeństwo:</strong> Domyślnie włączone mechanizmy bezpieczeństwa, takie jak SELinux.
+                </li>
+                <li><strong>Czystość:</strong> Dostarcza oprogramowanie w wersji "vanilla", czyli bez zbędnych
+                    modyfikacji twórców dystrybucji.</li>
+            </ul>
+        </article>
     </main>
-    <footer>
 
+    <!-- Stopka strony -->
+    <footer>
+        <p>&copy; 2024 Blog o Linuxie</p>
     </footer>
 </body>
+
 </html>

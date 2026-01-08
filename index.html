@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Blog</title>
+    <title>Blog o Linuxie - Strona Główna</title>
 </head>
+
 <body>
-    <header>
-        <h1>Nagłówek</h1>
-        <nav>
+    <!-- Nagłówek strony z nawigacją i menu hamburgerowym dla urządzeń mobilnych -->
+        <header>
+        <h1><a href="index.html">Linux Blog</a></h1>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
             <a href="index.html" class="btn">Start</a>
-            <a href="#news" class="btn">Nowości</a>
+            <a href="news.html" class="btn">Nowości</a>
             <a href="about-me.html" class="btn">O nas</a>
-            <a href="login.html" class="btn">Zaloguj</a>
+            <a href="login.html" class="btn">Logowanie</a>
         </nav>
     </header>
-    <aside class="distributions">
+
+    <!-- Skrypt obsługujący funkcjonalność menu hamburgerowego -->
+        <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('#nav-menu .btn').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+    <div class="container">
+        <!-- Panel boczny z listą dystrybucji -->
+        <aside class="distributions">
             <h2>Dystrybucje</h2>
             <ul>
                 <li><a href="#ubuntu">Ubuntu</a></li>
@@ -28,54 +59,125 @@
                 <li><a href="#popos">PopOS!</a></li>
                 <li><a href="#gentoo">Gentoo</a></li>
                 <li><a href="#arch">Arch</a></li>
+                <li><a href="#kali">Kali Linux</a></li>
+                <li><a href="#elementary">Elementary OS</a></li>
+                <li><a href="#opensuse">openSUSE</a></li>
             </ul>
-        <aside class="reklamy">
-            <h2>reklamy</h2>
-            <div class="ad-placeholder">
-                <p>[reklama]</p>
-            </div>
         </aside>
-    </aside>
-    <main class="wpisy">
-        <article class="wpis" id="ubuntu">
-            <a href="ubuntu.html"><h3>Ubuntu</h3></a>
-            <p>Ubuntu to popularna, przyjazna dla początkujących dystrybucja oparta na Debianie, ceniona za prostotę instalacji i wsparcie sprzętowe.</p>
-        </article>
-        <article class="wpis" id="manjaro">
-            <a href="manjaro.html"><h3>Manjaro</h3></a>
-            <p>Manjaro łączy moc Arch z prostotą użytkowania — oferuje łatwiejszą instalację i gotowe środowiska graficzne.</p>
-        </article>
-        <article class="wpis" id="fedora">
-            <a href="fedora.html"><h3>Fedora</h3></a>
-            <p>Fedora to nowoczesna dystrybucja, często używana do testowania najnowszych technologii Linuksa — szybkie wydania i DNF.</p>
-        </article>
-        <article class="wpis" id="mint">
-            <a href="mint.html"><h3>Mint</h3></a>
-            <p>Linux Mint to dystrybucja oparta na Ubuntu, skupiona na prostocie, wygodzie i gotowych rozwiązaniach dla użytkownika.</p>
-        </article>
-        <article class="wpis" id="debian">
-            <a href="debian.html"><h3>Debian</h3></a>
-            <p>Debian to stabilna i sprawdzona dystrybucja — fundament dla wielu innych systemów, ceniona za niezawodność.</p>
-        </article>
-        <article class="wpis" id="steamos">
-            <a href="steamos.html"><h3>SteamOS</h3></a>
-            <p>SteamOS to system zoptymalizowany pod gry i integrację ze Steamem — oparty na Debianie z naciskiem na wydajność gier.</p>
-        </article>
-        <article class="wpis" id="popos">
-            <a href="popos.html"><h3>PopOS!</h3></a>
-            <p>Pop!_OS, stworzony przez System76, skierowany jest do twórców i graczy — z optymalizacjami GPU i wygodnym środowiskiem.</p>
-        </article>
-        <article class="wpis" id="gentoo">
-            <a href="gentoo.html"><h3>Gentoo</h3></a>
-            <p>Gentoo oferuje kompilację pakietów ze źródeł i maksymalną kontrolę — to wybór dla zaawansowanych użytkowników poszukujących wydajności.</p>
-        </article>
-        <article class="wpis" id="arch">
-            <a href="arch.html"><h3>Arch</h3></a>       
-            <p>Arch Linux to lekka i elastyczna dystrybucja dla zaawansowanych użytkowników — znana z filozofii KISS i modelu rolling release.</p>
-        </article>
-    </main>
+
+        <!-- Główna zawartość strony z kafelkami wpisów o dystrybucjach -->
+        <main class="wpisy">
+            <!-- Każdy element article reprezentuje skrótowy opis danej dystrybucji -->
+            <article class="wpis" id="ubuntu">
+                <a href="ubuntu.html">
+                    <h3>Ubuntu</h3>
+                </a>
+                <p>Ubuntu to popularna, przyjazna dla początkujących dystrybucja oparta na Debianie, ceniona za prostotę
+                    instalacji i wsparcie sprzętowe.</p>
+            </article>
+
+            <article class="wpis" id="manjaro">
+                <a href="manjaro.html">
+                    <h3>Manjaro</h3>
+                </a>
+                <p>Manjaro łączy moc Arch z prostotą użytkowania — oferuje łatwiejszą instalację i gotowe środowiska
+                    graficzne.</p>
+            </article>
+
+            <article class="wpis" id="fedora">
+                <a href="fedora.html">
+                    <h3>Fedora</h3>
+                </a>
+                <p>Fedora to nowoczesna dystrybucja, często używana do testowania najnowszych technologii Linuksa —
+                    szybkie
+                    wydania i DNF.</p>
+            </article>
+
+            <article class="wpis" id="mint">
+                <a href="mint.html">
+                    <h3>Mint</h3>
+                </a>
+                <p>Linux Mint to dystrybucja oparta na Ubuntu, skupiona na prostocie, wygodzie i gotowych rozwiązaniach
+                    dla
+                    użytkownika.</p>
+            </article>
+
+            <article class="wpis" id="debian">
+                <a href="debian.html">
+                    <h3>Debian</h3>
+                </a>
+                <p>Debian to stabilna i sprawdzona dystrybucja — fundament dla wielu innych systemów, ceniona za
+                    niezawodność.</p>
+            </article>
+
+            <article class="wpis" id="steamos">
+                <a href="steamos.html">
+                    <h3>SteamOS</h3>
+                </a>
+                <p>SteamOS to system zoptymalizowany pod gry i integrację ze Steamem — oparty na Debianie z naciskiem na
+                    wydajność gier.</p>
+            </article>
+
+            <article class="wpis" id="popos">
+                <a href="popos.html">
+                    <h3>PopOS!</h3>
+                </a>
+                <p>Pop!_OS, stworzony przez System76, skierowany jest do twórców i graczy — z optymalizacjami GPU i
+                    wygodnym
+                    środowiskiem.</p>
+            </article>
+
+            <article class="wpis" id="gentoo">
+                <a href="gentoo.html">
+                    <h3>Gentoo</h3>
+                </a>
+                <p>Gentoo oferuje kompilację pakietów ze źródeł i maksymalną kontrolę — to wybór dla zaawansowanych
+                    użytkowników poszukujących wydajności.</p>
+            </article>
+
+            <article class="wpis" id="arch">
+                <a href="arch.html">
+                    <h3>Arch</h3>
+                </a>
+                <p>Arch Linux to lekka i elastyczna dystrybucja dla zaawansowanych użytkowników — znana z filozofii KISS
+                    i
+                    modelu rolling release.</p>
+            </article>
+
+            <article class="wpis" id="kali">
+                <a href="kali.html">
+                    <h3>Kali Linux</h3>
+                </a>
+                <p>Kali Linux to zaawansowana dystrybucja do testów penetracyjnych i audytów bezpieczeństwa, wyposażona
+                    w
+                    setki specjalistycznych narzędzi.</p>
+            </article>
+
+            <article class="wpis" id="elementary">
+                <a href="elementary.html">
+                    <h3>Elementary OS</h3>
+                </a>
+                <p>Elementary OS wyróżnia się pięknym, przemyślanym interfejsem inspirowanym systemem macOS, stawiając
+                    na
+                    estetykę i prywatność.</p>
+            </article>
+
+            <article class="wpis" id="opensuse">
+                <a href="opensuse.html">
+                    <h3>openSUSE</h3>
+                </a>
+                <p>openSUSE to stabilna i wszechstronna dystrybucja z potężnym narzędziem konfiguracyjnym YaST, dostępna
+                    w
+                    wersjach Leap i Tumbleweed.</p>
+            </article>
+        </main>
+
+    </div>
+
+    <!-- Stopka strony -->
     <footer>
-        
+        <p>&copy; 2024 Blog o Linuxie</p>
     </footer>
 </body>
+
 </html>

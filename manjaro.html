@@ -1,20 +1,72 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Blog</title>
+    <title>Manjaro - Szczegóły Dystrybucji</title>
 </head>
+
 <body>
-    <header>
-        <h1></h1>
+    <!-- Nagłówek podstrony -->
+        <header>
+        <h1><a href="index.html">Linux Blog</a></h1>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="index.html" class="btn">Start</a>
+            <a href="news.html" class="btn">Nowości</a>
+            <a href="about-me.html" class="btn">O nas</a>
+            <a href="login.html" class="btn">Logowanie</a>
+        </nav>
     </header>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('#nav-menu .btn').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+    <!-- Główna zawartość podstrony -->
     <main>
+        <article class="wpis-detail">
+            <h2>Arch dla każdego</h2>
+            <p>Manjaro to dystrybucja oparta na Arch Linux, która czyni potęgę Archa dostępną dla zwykłego użytkownika.
+                Oferuje wszystkie zalety modelu "rolling release" (ciągłych aktualizacji) w przyjaznym, graficznym
+                opakowaniu.</p>
 
+            <h3>Dlaczego Manjaro?</h3>
+            <ul>
+                <li><strong>Dostępność:</strong> Prosty instalator graficzny i prekonfigurowane środowiska.</li>
+                <li><strong>Rolling Release:</strong> Instalujesz raz, aktualizujesz zawsze - system jest ciągle
+                    najnowszy.</li>
+                <li><strong>AUR:</strong> Łatwy dostęp do Arch User Repository, zawierającego tysiące pakietów
+                    tworzonych przez społeczność.</li>
+                <li><strong>Wybór środowisk:</strong> Oficjalne wsparcie dla XFCE, KDE Plasma i GNOME.</li>
+            </ul>
+        </article>
     </main>
-    <footer>
 
+    <!-- Stopka strony -->
+    <footer>
+        <p>&copy; 2024 Blog o Linuxie</p>
     </footer>
 </body>
+
 </html>

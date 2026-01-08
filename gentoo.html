@@ -1,20 +1,71 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Blog</title>
+    <title>Gentoo - Szczegóły Dystrybucji</title>
 </head>
+
 <body>
-    <header>
-        <h1></h1>
+    <!-- Nagłówek podstrony -->
+        <header>
+        <h1><a href="index.html">Linux Blog</a></h1>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="index.html" class="btn">Start</a>
+            <a href="news.html" class="btn">Nowości</a>
+            <a href="about-me.html" class="btn">O nas</a>
+            <a href="login.html" class="btn">Logowanie</a>
+        </nav>
     </header>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('#nav-menu .btn').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+    <!-- Główna zawartość podstrony -->
     <main>
+        <article class="wpis-detail">
+            <h2>Kompiluj wszystko</h2>
+            <p>Gentoo to dystrybucja dla tych, którzy chcą mieć absolutną kontrolę nad każdą linijką kodu w swoim
+                systemie. Instalacja oprogramowania polega tutaj na jego kompilacji ze źródeł, co pozwala na idealne
+                dopasowanie do sprzętu.</p>
 
+            <h3>Unikalne cechy:</h3>
+            <ul>
+                <li><strong>Portage:</strong> Zaawansowany system zarządzania pakietami inspirowany portami z BSD.</li>
+                <li><strong>Flagi USE:</strong> Pozwalają definiować globalnie lub lokalnie, z jakimi funkcjami mają być
+                    kompilowane programy.</li>
+                <li><strong>Wydajność:</strong> System "szyty na miarę" może działać szybciej na specyficznym sprzęcie.
+                </li>
+            </ul>
+        </article>
     </main>
-    <footer>
 
+    <!-- Stopka strony -->
+    <footer>
+        <p>&copy; 2024 Blog o Linuxie</p>
     </footer>
 </body>
+
 </html>

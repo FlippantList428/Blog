@@ -1,20 +1,72 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Blog</title>
+    <title>Debian - Szczegóły Dystrybucji</title>
 </head>
+
 <body>
-    <header>
-        <h1></h1>
+    <!-- Nagłówek podstrony -->
+        <header>
+        <h1><a href="index.html">Linux Blog</a></h1>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
+            <a href="index.html" class="btn">Start</a>
+            <a href="news.html" class="btn">Nowości</a>
+            <a href="about-me.html" class="btn">O nas</a>
+            <a href="login.html" class="btn">Logowanie</a>
+        </nav>
     </header>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('#nav-menu .btn').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+    <!-- Główna zawartość podstrony -->
     <main>
+        <article class="wpis-detail">
+            <h2>Uniwersalny System Operacyjny</h2>
+            <p>Debian to jedna z najstarszych i najbardziej szanowanych dystrybucji. Jest znany ze swojej niezachwianej
+                stabilności i przywiązania do idei Wolnego Oprogramowania. Stanowi bazę dla setek innych dystrybucji, w
+                tym Ubuntu.</p>
 
+            <h3>Filary Debiana:</h3>
+            <ul>
+                <li><strong>Stabilność:</strong> Pakiety w wersji stabilnej są testowane miesiącami, co gwarantuje
+                    bezawaryjność.</li>
+                <li><strong>Wsparcie architektur:</strong> Działa na prawie każdym sprzęcie, od superkomputerów po
+                    Raspberry Pi.</li>
+                <li><strong>Apt:</strong> Potężny system zarządzania pakietami (Advanced Package Tool).</li>
+                <li><strong>Kontrakt Społeczny:</strong> Jasne zasady kierujące rozwojem projektu.</li>
+            </ul>
+        </article>
     </main>
-    <footer>
 
+    <!-- Stopka strony -->
+    <footer>
+        <p>&copy; 2024 Blog o Linuxie</p>
     </footer>
 </body>
+
 </html>
