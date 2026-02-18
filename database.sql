@@ -1,3 +1,9 @@
+--
+-- Plik: database.sql
+-- Typ: Skrypt inicjalizacyjny SQL (tworzenie bazy i tabel)
+-- Krótko: definiuje bazę `users_data` oraz tabelę `users` z podstawowymi kolumnami.
+-- Uwaga: plik jest tylko przykładowy — w środowisku produkcyjnym zadbaj o bezpieczeństwo haseł.
+--
 -- Skrypt SQL do inicjalizacji bazy danych użytkowników
 -- Zawiera definicję bazy danych oraz tabeli przechowującej dane kont
 -- 1. Tworzenie bazy danych (jeśli nie istnieje) z obsługą polskich znaków (utf8mb4)

@@ -1,3 +1,13 @@
+/*
+    style.css - główne style strony Blog o Linuxie
+    Sekcje:
+        1. Zmienne i Reset
+        2. Nagłówek
+        3. Układ główny
+        ...
+    Uwaga: tryb ciemny realizowany jest przez klasę `.dark-mode`, która nadpisuje
+    zmienne CSS (prefiks :root) — dzięki temu łatwo jest zmieniać schemat kolorów.
+*/
 /* 1. Zmienne i Reset (Variables & Reset) */
 :root {
     --primary-color: #CD853F;
@@ -95,6 +105,11 @@ main {
 
 
 /* 2. Nagłówek (Header) */
+/*
+    Sekcja nagłówka zawiera: logo/tytuł, przycisk hamburger oraz poziomą nawigację.
+    - Styl wykorzystuje `position: fixed` aby header był przyklejony do góry.
+    - Menu w wersji mobilnej jest ukrywane/pokazywane przez klasę `.active` sterowaną w JS.
+*/
 header {
     background: rgba(51, 51, 51, 0.95);
     backdrop-filter: blur(8px);
@@ -123,6 +138,9 @@ header h1 a:hover {
     color: var(--primary-color);
 }
 
+/* Hamburger (przycisk menu)
+    - Widoczny tylko na małych ekranach (wyświetlany przez media query).
+    - Animacja ikonki realizowana przez transformacje na kolejnych <span>. */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -143,6 +161,7 @@ header h1 a:hover {
     transition: var(--transition);
 }
 
+/* Styl transformujący kreski hamburgera w 'X' gdy `.active` */
 .hamburger.active span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
@@ -179,6 +198,10 @@ nav .btn:hover {
 }
 
 /* Theme Toggle Button (Floating) */
+/* Floating Theme Toggle
+    - Przycisk pływający, pozycjonowany nad stopką.
+    - Zmienia klasę `dark-mode` na <body>; preferencja jest zapisywana w localStorage.
+*/
 .theme-toggle {
     position: fixed;
     bottom: 30px;
@@ -206,6 +229,7 @@ nav .btn:hover {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
+/* Ikony stanu motywu: pokazujemy tylko odpowiednią ikonę dla aktualnego motywu */
 .dark-mode-icon {
     display: none;
 }
@@ -222,7 +246,10 @@ nav .btn:hover {
     display: none;
 }
 
-/* 3. Układ Główny (Main Layout) */
+/* 3. Układ Główny (Main Layout)
+    - `.container` jest flexem; na większych ekranach pokazuje sidebar + zawartość.
+    - Na mniejszych ekranach układ zmienia się w kolumnę (sidebar poniżej lub jako collapse).
+*/
 .container {
     display: flex;
     flex: 1;
@@ -233,7 +260,9 @@ nav .btn:hover {
     margin-top: 0;
 }
 
-/* 4. Panel Boczny (Sidebar) */
+/* 4. Panel Boczny (Sidebar)
+    - Zawiera listę dystrybucji i przyciski filtrów.
+    - Ma `position: sticky` aby pozostać widocznym podczas przewijania. */
 .distributions {
     width: 280px;
     background: var(--primary-color);
@@ -284,7 +313,8 @@ nav .btn:hover {
     color: #fff;
 }
 
-/* Breadcrumbs */
+/* Breadcrumbs
+    - Prosty pasek nawigacyjny informujący użytkownika o bieżącej lokalizacji. */
 .breadcrumbs {
     grid-column: 1 / -1;
     padding: 1.2rem 0;
@@ -326,7 +356,8 @@ nav .btn:hover {
     font-weight: 600;
 }
 
-/* 5. Główna Zawartość (Main Content) */
+/* 5. Główna Zawartość (Main Content)
+    - Grid kart wpisów (`.wpis`), responsywnie dopasowuje liczbę kolumn. */
 main.wpisy {
     flex: 1;
     padding: 2.5rem;
@@ -336,7 +367,9 @@ main.wpisy {
     align-content: start;
 }
 
-/* 6. Karty Wpisów (Post Cards) */
+/* 6. Karty Wpisów (Post Cards)
+    - Karty używają `box-shadow`, `border-radius` i efektu uniesienia przy hover.
+    - `scroll-margin-top` pomaga skrolować do elementów z nagłówka przy kotwicach. */
 .wpis {
     background: var(--light-color);
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -373,7 +406,9 @@ main.wpisy {
     margin-bottom: 1.5rem;
 }
 
-/* Tag Styles */
+/* Tag Styles
+    - Prosty system tagów używany do wizualnego oznaczania cech dystrybucji.
+    - Kolory specyficzne dla klas takich jak `.rolling`, `.beginner` itp. */
 .tag-container {
     display: flex;
     flex-wrap: wrap;
@@ -411,7 +446,9 @@ main.wpisy {
     color: #000;
 }
 
-/* Filter Styles */
+/* Filter Styles
+    - Przyciski filtrów są zwykłymi elementami <button> z usuniętymi domyślnymi stylami
+    - Kliknięcie ustawia `.active`, a JavaScript ukrywa/odkrywa karty (klasa `.hidden`). */
 .filter-btn {
     all: unset;
     cursor: pointer;
@@ -432,7 +469,8 @@ main.wpisy {
     display: none;
 }
 
-/* 7. Podstrony Detali (Detail Pages) */
+/* 7. Podstrony Detali (Detail Pages)
+    - Szersza kolumna dla pojedynczych artykułów/poradników. */
 .wpis-detail {
     max-width: 900px;
     margin: 2rem auto;
@@ -465,7 +503,8 @@ main.wpisy {
     font-size: 1.1rem;
 }
 
-/* 8. Stopka (Footer) */
+/* 8. Stopka (Footer)
+    - Prosty, kontrastowy footer z ikonami social. */
 footer {
     background: var(--accent-color);
     color: rgba(255, 255, 255, 0.7);
@@ -474,7 +513,33 @@ footer {
     margin-top: auto;
 }
 
-/* 9. Autoryzacja (Auth Pages) */
+.socialmedia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.socialmedia a {
+    transition: var(--transition);
+}
+
+.socialmedia a:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.2);
+}
+
+.socialmedia img {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    /* Override global block display */
+}
+
+/* 9. Autoryzacja (Auth Pages)
+    - Style pudeł formularzy logowania/rejestracji.
+    - Na produkcji zadbaj o walidację po stronie serwera i bezpieczne przechowywanie haseł. */
 .auth-container {
     display: flex;
     justify-content: center;
@@ -554,7 +619,8 @@ footer {
     font-weight: 600;
 }
 
-/* 10. Komentarze i Odznaki (Comments & Badges) */
+/* 10. Komentarze i Odznaki (Comments & Badges)
+    - Style listy komentarzy i wyróżnień (badge). */
 .badge-new {
     background: #27ae60;
     color: #fff;
@@ -640,7 +706,8 @@ footer {
     font-size: 1.1rem;
 }
 
-/* 11. Extra News Styles */
+/* 11. Extra News Styles
+    - Dodatkowe drobiazgi dla listy newsów. */
 .news-list h1 {
     text-align: center;
     margin-bottom: 3rem;
@@ -700,42 +767,9 @@ footer {
     padding: 5px 15px;
 }
 
-/* 11. Strona Darowizn (Donation Page) */
-.donate-box {
-    text-align: center;
-}
-
-.donate-mascot {
-    max-width: 200px;
-    margin: 2rem auto;
-    border-radius: 50%;
-    display: block;
-    box-shadow: var(--shadow-md);
-}
-
-.donate-options {
-    margin: 3rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-.paypal-btn {
-    background: #e67e22 !important;
-    text-decoration: none;
-    width: auto !important;
-    padding: 1rem 3rem !important;
-}
-
-.patreon-btn {
-    background: #3498db !important;
-    text-decoration: none;
-    width: auto !important;
-    padding: 1rem 3rem !important;
-}
-
-/* 12. Responsywność (Responsive) */
+/* 12. Responsywność (Responsive)
+    - Breakpointy dostosowują układ: sidebar -> kolumna, menu -> hamburger.
+    - W media queries modyfikujemy wyświetlanie na tabletach i urządzeniach mobilnych. */
 
 /* Tablets and small desktops */
 @media (max-width: 1100px) {

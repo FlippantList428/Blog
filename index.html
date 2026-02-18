@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="pl">
 
+<!--
+    Blog o Linuxie - statyczna strona informacyjna.
+    Pliki: index.html, style.css, main.js
+    Cel: lista dystrybucji, filtrowanie oraz proste UI (motyw, hamburger menu).
+    Komentarze w pliku mają pomóc w szybkiej orientacji i dalszym rozwijaniu.
+-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +34,8 @@
         </nav>
     </header>
 
-    <!-- Skrypt obsługujący funkcjonalność menu hamburgerowego (moved to main.js) -->
+        <!-- Skrypt obsługujący funkcjonalność menu hamburgerowego i przełącznik motywu
+            został przeniesiony do `main.js` (ładowany z atrybutem defer) -->
 
     <div class="container">
         <!-- Panel boczny z listą dystrybucji -->
@@ -51,6 +59,7 @@
             <div class="sidebar-section">
                 <h3>Filtruj po cechach</h3>
                 <ul>
+                    <!-- Przyciski filtrów ustawiają atrybut data-filter; JS ukrywa/odkrywa elementy z data-tags -->
                     <li><button class="filter-btn active" data-filter="all">Pokaż wszystkie</button></li>
                     <li><button class="filter-btn" data-filter="beginner-friendly">Beginner Friendly</button></li>
                     <li><button class="filter-btn" data-filter="rolling-release">Rolling Release</button></li>
@@ -66,7 +75,11 @@
             <nav class="breadcrumbs" aria-label="Breadcrumb">
                 <span class="current">Start</span>
             </nav>
-            <!-- Każdy element article reprezentuje skrótowy opis danej dystrybucji -->
+              <!-- Każdy element article reprezentuje skrótowy opis danej dystrybucji -->
+              <!--
+                  W atrybucie `data-tags` umieszczone są słowa kluczowe używane przez
+                  skrypt filtrujący w `main.js` (np. 'beginner-friendly', 'rolling-release').
+              -->
             <article class="wpis" id="ubuntu" data-tags="beginner-friendly desktop lts">
                 <a href="ubuntu.html">
                     <h3>Ubuntu</h3>
@@ -229,7 +242,16 @@
     <!-- Stopka strony -->
     <footer>
         <p>&copy; 2026 Blog o Linuxie</p>
+        <div class="socialmedia">
+            <a href="https://facebook.com" target="_blank">
+                <img src="facebook.svg" alt="Facebook">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="instagram.svg" alt="Instagram">
+            </a>
+        </div>
     </footer>
+    <!-- Przycisk przełączający motyw (jasny/ciemny). Zachowanie zapisane w localStorage przez main.js -->
     <button class="theme-toggle" id="theme-toggle" aria-label="Przełącz motyw">
         <span class="light-mode-icon">🌙</span>
         <span class="dark-mode-icon">☀️</span>
