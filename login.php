@@ -4,7 +4,7 @@ session_start();
 
 $message = '';
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -22,17 +22,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $message = "Nieprawidłowa nazwa użytkownika lub hasło";
     }
+
     $stmt->close();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pl">
 
 <!--
-    Plik: login.html
-    Typ: Strona logowania użytkownika.
-    Krótko: prosty formularz logowania; walidacja po stronie klienta w `main.js`.
-    Uwaga: nie przechowujemy haseł w JS — backend powinien obsługiwać bezpieczeństwo.
+    Plik: login.php
+    Strona logowania użytkownika.
 -->
 
 <head>
@@ -45,7 +45,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <!-- Nagłówek sekcji logowania -->
     <header>
         <h1><a href="index.html">Linux Blog</a></h1>
         <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -57,49 +56,45 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="index.html" class="btn">Start</a>
             <a href="news.html" class="btn">Nowości</a>
             <a href="about-me.html" class="btn">O nas</a>
-            <a href="login.html" class="btn">Logowanie</a>
+            <a href="login.php" class="btn">Logowanie</a>
         </nav>
     </header>
 
-    <!-- Skrypt obsługujący menu mobilne na stronie logowania (moved to main.js) -->
-
-    <!-- Główny kontener strony logowania -->
     <main class="auth-container">
-        <!-- Pudełko z formularzem logowania -->
         <section class="auth-box">
             <h1>Zaloguj się</h1>
-            <form action="#" method="POST" id="loginForm">
-                <!-- Pole nazwy użytkownika z walidacją HTML5 -->
+
+            <?php if ($message): ?>
+                <p><?= $message ?></p>
+            <?php endif; ?>
+
+            <form action="login.php" method="POST" id="loginForm">
                 <div class="form-group">
                     <label for="username">Nazwa użytkownika</label>
                     <input type="text" id="username" name="username" required minlength="3" maxlength="20"
                         placeholder="Wpisz login">
                     <small class="form-hint">Minimum 3 znaki</small>
                 </div>
-                <!-- Pole hasła z walidacją HTML5 -->
+
                 <div class="form-group">
                     <label for="password">Hasło</label>
                     <input type="password" id="password" name="password" required minlength="8"
                         placeholder="Wpisz hasło">
                     <small class="form-hint">Minimum 8 znaków</small>
                 </div>
-                <!-- Przycisk wysyłający formularz -->
+
                 <button type="submit" class="btn-submit">Zaloguj się</button>
             </form>
-            <!-- Link do strony rejestracji dla nowych użytkowników -->
+
             <p class="auth-switch">
-                Nie masz jeszcze konta? <a href="register.html">Zarejestruj się</a>
+                Nie masz jeszcze konta? <a href="register.php">Zarejestruj się</a>
             </p>
         </section>
     </main>
 
-    <!-- Skrypt obsługujący walidację formularza (moved to main.js) -->
-
-    <!-- Stopka strony -->
     <footer>
         <p>&copy; 2026 Blog o Linuxie</p>
     </footer>
 </body>
 
 </html>
-
