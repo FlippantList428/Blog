@@ -7,32 +7,25 @@
 -- Skrypt SQL do inicjalizacji bazy danych użytkowników
 -- Zawiera definicję bazy danych oraz tabeli przechowującej dane kont
 -- 1. Tworzenie bazy danych (jeśli nie istnieje) z obsługą polskich znaków (utf8mb4)
-CREATE DATABASE IF NOT EXISTS users_data CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS Blog CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 -- Przełączenie na nowo utworzoną bazę
-USE users_data;
+USE Blog;
 -- 2. Tworzenie tabeli 'users' przechowującej informacje o zarejestrowanych użytkownikach
 CREATE TABLE users (
     -- Unikalny identyfikator użytkownika (klucz główny)
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    -- Dane osobowe
-    name VARCHAR(40) NOT NULL,
-    -- Imię
-    second_name VARCHAR(40),
-    -- Drugie imię (opcjonalne)
-    surname VARCHAR(40) NOT NULL,
-    -- Nazwisko
-    -- Dane logowania i kontaktowe
-    email VARCHAR(100) NOT NULL UNIQUE,
+    -- Nazwa użytkownika (unikalna)
+    username VARCHAR(40) NOT NULL UNIQUE,
     -- Adres email (musi być unikalny)
-    password VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
     -- Zaszyfrowane hasło
-    -- Uprawnienia i status konta
-    role ENUM('user', 'admin') DEFAULT 'user',
+    password VARCHAR(255) NOT NULL,
     -- Rola w systemie (domyślnie zwykły użytkownik)
-    is_active TINYINT(1) DEFAULT 1,
+    role ENUM('user', 'admin') DEFAULT 'user',
     -- Czy konto jest aktywne (0 lub 1)
-    -- Znaczniki czasowe
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    is_active TINYINT(1) DEFAULT 1,
     -- Data utworzenia konta
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP -- Data ostatniej modyfikacji
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    -- Data ostatniej modyfikacji
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

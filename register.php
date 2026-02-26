@@ -1,11 +1,60 @@
+<?php
+// Włącz obsługę sesji
+session_start();
+
+// Wymagaj pliku z połączeniem do bazy danych
+require 'database.php';
+
+$message = '';
+
+// Sprawdź, czy formularz został wysłany
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $confirm_password = $_POST['confirm-password'] ?? '';
+
+    // Podstawowa walidacja (dodatkowa względem tej w JS i HTML)
+    if ($password !== $confirm_password) {
+        $message = "Hasła nie są identyczne!";
+    } else {
+        // Sprawdź, czy użytkownik lub email już istnieje w bazie danych
+        $stmt_check = $polaczenie->prepare("SELECT id FROM users WHERE username = ? OR email = ?");
+        $stmt_check->bind_param("ss", $username, $email);
+        $stmt_check->execute();
+        $result = $stmt_check->get_result();
+
+        if ($result->num_rows > 0) {
+            $message = "Wybrana nazwa użytkownika lub emali jest już zajęta.";
+        } else {
+            // Hashowanie hasła dla bezpieczeństwa
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+            // Wstaw nowego użytkownika do bazy za pomocą Prepared Statement
+            $stmt = $polaczenie->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $username, $email, $hashed_password);
+
+            if ($stmt->execute()) {
+                // Po udanej rejestracji zaloguj użytkownika automatycznie lub przekieruj
+                // Opcjonalnie: $_SESSION['user_id'] = $polaczenie->insert_id;
+                header("Location: login.php?registered=1");
+                exit;
+            } else {
+                $message = "Wystąpił błąd podczas rejestracji. Spróbuj ponownie później.";
+            }
+            $stmt->close();
+        }
+        $stmt_check->close();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pl">
 
 <!--
-    Plik: register.html
-    Typ: Formularz rejestracyjny użytkownika.
-    Krótko: zawiera pola rejestracji; prosta walidacja haseł w `main.js`.
-    Uwaga: na produkcji hasła powinny być walidowane i hashowane po stronie serwera.
+    Plik: register.php
+    Typ: Formularz rejestracyjny użytkownika i jego obsługa (przy użyciu PHP i bazy MySQL).
+    Uwaga: Skrypt przyjmuje żądanie POST, waliduje dane i hashuje hasło do bazy danych.
 -->
 
 <head>
@@ -41,7 +90,12 @@
         <!-- Pudełko z formularzem rejestracji -->
         <section class="auth-box">
             <h1>Rejestracja</h1>
-            <form action="#" method="POST" id="registerForm">
+
+            <?php if (!empty($message)): ?>
+                <p class="error-msg" style="color: red; margin-bottom: 10px; font-weight: bold;"><?= htmlspecialchars($message) ?></p>
+            <?php endif; ?>
+
+            <form action="register.php" method="POST" id="registerForm">
                 <!-- Pole nazwy użytkownika z wzorcem (pattern) i walidacją długości -->
                 <div class="form-group">
                     <label for="username">Nazwa użytkownika</label>

@@ -1,28 +1,49 @@
 <?php
+// Wymagaj pliku wczytującego połączenie z bazą danych ($polaczenie)
 require 'database.php';
+// Rozpocznij sesję w celu przechowywania danych zalogowanego użytkownika
 session_start();
 
 $message = '';
 
+// Sprawdź, czy użytkownik został właśnie zarejestrowany - jeśli tak, powiadom o udanej operacji
+if (isset($_GET['registered']) && $_GET['registered'] == 1) {
+    $message = "Konto zostało pomyślnie utworzone. Możesz się teraz zalogować.";
+}
+
+// Sprawdzenie, czy formularz został przesłany metodą POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Bezpieczne pobranie nazwy użytkownika i hasła z globalnej tablicy $_POST
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $stmt = $polaczenie->prepare("SELECT id, password FROM users WHERE username = ?");
+    // Przygotowanie zapytania SQL zapobiegającego atakom SQL Injection (Prepared Statement)
+    $stmt = $polaczenie->prepare("SELECT id, username, password FROM users WHERE username = ?");
+    // Przypisanie parametru wyszukiwania jako stringu ('s')
     $stmt->bind_param("s", $username);
+    // Wykonanie zapytania
     $stmt->execute();
 
+    // Pobranie wyniku zwróconego przez bazę
     $wynik = $stmt->get_result();
+    // Konwersja jedynego wiersza na tablicę asocjacyjną
     $user = $wynik->fetch_assoc();
 
+    // Weryfikacja: czy użytkownik istnieje oraz czy weryfikacja zaszyfrowanego hasła w bazie jest zgodna z podanym hasłem
     if ($user && password_verify($password, $user['password'])) {
+        // Zapisanie danych autoryzacji do zaufanej sesji na serwerze 
         $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        
+        // Przekierowanie użytkownika na chronioną stronę logowania po poprawnym uwierzytelnieniu
         header("Location: dashboard.php");
         exit;
     } else {
+        // W przeciwnym przypadku wyświetl standardowy komunikat bez podawania faktu, czy to hasło czy nazwa są złe (bezpieczeństwo)
         $message = "Nieprawidłowa nazwa użytkownika lub hasło";
     }
 
+    // Zamknięcie zapytania co zwalnia pamięć i zasoby po stronie serwera MySQL
     $stmt->close();
 }
 ?>
